@@ -1,0 +1,322 @@
+/* الأساسيات */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* الخلفية العامة */
+.global-bg {
+    position: fixed;
+    inset: 0;
+    background: url('https://media.discordapp.net/attachments/1450830732221223026/1491795961679446036/image.png?ex=69da5041&is=69d8fec1&hm=98b70eb3bf20682b2d4cf85432ac497765bc6e914417c85bae6fdffd2d2e8119&=&format=webp&quality=lossless&width=1328&height=747') center/cover no-repeat;
+    filter: brightness(0.4);
+    z-index: -1;
+    animation: slowZoom 25s linear infinite alternate;
+}
+
+@keyframes slowZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.08); }
+}
+
+/* الهيدر */
+.navbar {
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: 18px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+    direction: rtl;
+    box-sizing: border-box;
+}
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding-bottom: 4px;
+    transition: 0.3s;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #b37bff;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-btn {
+    margin-left: auto;
+    background: #b37bff;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    opacity: 0.85;
+}
+
+.discord-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* الرئيسية */
+.hero {
+    text-align: center;
+    margin-top: 130px;
+    padding: 0 15px 40px;
+}
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 700;
+    color: #cfaaff;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 650px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 32px;
+    margin-top: 10px;
+    background: #b37bff;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #d3aaff;
+    transform: scale(1.05);
+}
+
+/* القوانين */
+.rules-container {
+    width: min(90%, 1100px);
+    margin: 140px auto 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.rule-box {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 16px 18px;
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.rule-header {
+    font-size: 19px;
+    font-weight: 700;
+    color: #d8b4ff;
+}
+
+.rule-content {
+    font-size: 16px;
+    line-height: 1.8;
+    opacity: 0.9;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+}
+
+.rule-box.open .rule-content {
+    max-height: 2000px;
+    margin-top: 8px;
+}
+
+/* الأونرات */
+.owners-container {
+    width: min(90%, 1100px);
+    margin: 140px auto 60px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 38px;
+    font-weight: 700;
+    color: #d8b4ff;
+    margin-bottom: 30px;
+}
+
+.owners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.owner-card {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 18px;
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+}
+
+.owner-card:hover {
+    transform: scale(1.03);
+    border-color: #b37bff;
+}
+
+.owner-card img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.owner-card h3 {
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.owner-card p {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* المتجر (مؤقت بسيط) */
+.store-container {
+    width: min(90%, 1100px);
+    margin: 140px auto 60px;
+    text-align: center;
+}
+
+/* استجابة الشاشات المتوسطة */
+@media (max-width: 900px) {
+    .navbar {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-logo {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+
+    .nav-links {
+        justify-content: center;
+        flex: 1 1 100%;
+    }
+
+    .nav-btn {
+        margin-left: 0;
+        margin-right: auto;
+    }
+
+    .hero {
+        margin-top: 110px;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+}
+
+/* استجابة الجوال */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 10px 12px;
+        justify-content: center;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .nav-btn {
+        font-size: 13px;
+        padding: 7px 10px;
+    }
+
+    .hero {
+        margin-top: 95px;
+        padding-inline: 12px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .rules-container,
+    .owners-container,
+    .store-container {
+        margin-top: 120px;
+    }
+
+    .rule-header {
+        font-size: 17px;
+    }
+
+    .rule-content {
+        font-size: 14px;
+    }
+
+    .page-title {
+        font-size: 30px;
+    }
+}
